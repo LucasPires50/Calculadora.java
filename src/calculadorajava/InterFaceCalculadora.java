@@ -5,24 +5,32 @@
  */
 package calculadorajava;
 
-import javax.swing.JButton;
+import Operacoes.OperaçoesAvançadas;
+import Operacoes.OperaçoesBasicas;
+import javax.swing.border.EtchedBorder;
 
 /**
  *
  * @author Aluno
  */
 public class InterFaceCalculadora extends javax.swing.JFrame {
-
+  
     
     private String display;
+    OperaçoesBasicas op = new OperaçoesBasicas();
+    OperaçoesAvançadas opA = new OperaçoesAvançadas();
     /**
      * Creates new form InterFaceCalculadora
      */
     public InterFaceCalculadora() {
         initComponents();
+        //para colocar a borda no painel
+        textCalculo.setBorder(new EtchedBorder());
         this.display = "";
     }
-
+     //variáveis globais
+    double valor1, valor2, resultado;
+    char operacao;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,7 +65,7 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
         setForeground(new java.awt.Color(0, 0, 0));
 
         btn1.setText("1");
-        btn1.setPreferredSize(new java.awt.Dimension(45, 45));
+        btn1.setPreferredSize(new java.awt.Dimension(50, 50));
         btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn1ActionPerformed(evt);
@@ -65,40 +73,95 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
         });
 
         btn3.setText("3");
-        btn3.setPreferredSize(new java.awt.Dimension(45, 45));
+        btn3.setPreferredSize(new java.awt.Dimension(50, 50));
+        btn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3ActionPerformed(evt);
+            }
+        });
 
         btn2.setText("2");
-        btn2.setPreferredSize(new java.awt.Dimension(45, 45));
+        btn2.setPreferredSize(new java.awt.Dimension(50, 50));
+        btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2ActionPerformed(evt);
+            }
+        });
 
         btn5.setText("5");
-        btn5.setPreferredSize(new java.awt.Dimension(45, 45));
+        btn5.setPreferredSize(new java.awt.Dimension(50, 50));
+        btn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn5ActionPerformed(evt);
+            }
+        });
 
         btn4.setText("4");
-        btn4.setPreferredSize(new java.awt.Dimension(45, 45));
+        btn4.setPreferredSize(new java.awt.Dimension(50, 50));
+        btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ActionPerformed(evt);
+            }
+        });
 
         btn7.setText("7");
-        btn7.setPreferredSize(new java.awt.Dimension(45, 45));
+        btn7.setPreferredSize(new java.awt.Dimension(50, 50));
+        btn7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn7ActionPerformed(evt);
+            }
+        });
 
         btn6.setText("6");
-        btn6.setPreferredSize(new java.awt.Dimension(45, 45));
+        btn6.setPreferredSize(new java.awt.Dimension(50, 50));
+        btn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn6ActionPerformed(evt);
+            }
+        });
 
         btn9.setText("9");
-        btn9.setPreferredSize(new java.awt.Dimension(45, 45));
+        btn9.setPreferredSize(new java.awt.Dimension(50, 50));
+        btn9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn9ActionPerformed(evt);
+            }
+        });
 
         btn8.setText("8");
-        btn8.setPreferredSize(new java.awt.Dimension(45, 45));
+        btn8.setPreferredSize(new java.awt.Dimension(50, 50));
+        btn8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn8ActionPerformed(evt);
+            }
+        });
 
         btn0.setText("0");
-        btn0.setPreferredSize(new java.awt.Dimension(45, 45));
+        btn0.setPreferredSize(new java.awt.Dimension(50, 50));
+        btn0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn0ActionPerformed(evt);
+            }
+        });
 
         btnlMutiplicar.setText("*");
-        btnlMutiplicar.setPreferredSize(new java.awt.Dimension(45, 45));
+        btnlMutiplicar.setPreferredSize(new java.awt.Dimension(50, 50));
+        btnlMutiplicar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlMutiplicarActionPerformed(evt);
+            }
+        });
 
         btnlDividir.setText("/");
-        btnlDividir.setPreferredSize(new java.awt.Dimension(45, 45));
+        btnlDividir.setPreferredSize(new java.awt.Dimension(50, 50));
+        btnlDividir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlDividirActionPerformed(evt);
+            }
+        });
 
         btnSubtrair.setText("-");
-        btnSubtrair.setPreferredSize(new java.awt.Dimension(45, 45));
+        btnSubtrair.setPreferredSize(new java.awt.Dimension(50, 50));
         btnSubtrair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubtrairActionPerformed(evt);
@@ -108,7 +171,7 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
         btnSoma.setText("+");
         btnSoma.setMaximumSize(new java.awt.Dimension(30, 30));
         btnSoma.setMinimumSize(new java.awt.Dimension(30, 30));
-        btnSoma.setPreferredSize(new java.awt.Dimension(45, 45));
+        btnSoma.setPreferredSize(new java.awt.Dimension(50, 50));
         btnSoma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSomaActionPerformed(evt);
@@ -116,7 +179,7 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
         });
 
         btnPonto.setText(".");
-        btnPonto.setPreferredSize(new java.awt.Dimension(45, 45));
+        btnPonto.setPreferredSize(new java.awt.Dimension(50, 50));
         btnPonto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPontoActionPerformed(evt);
@@ -126,13 +189,25 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
         btnLimparTela.setText("CE");
         btnLimparTela.setMaximumSize(new java.awt.Dimension(40, 40));
         btnLimparTela.setMinimumSize(new java.awt.Dimension(40, 40));
-        btnLimparTela.setPreferredSize(new java.awt.Dimension(45, 45));
+        btnLimparTela.setPreferredSize(new java.awt.Dimension(50, 50));
+        btnLimparTela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparTelaActionPerformed(evt);
+            }
+        });
 
         listHistoricoDeCalculos.setBackground(new java.awt.Color(204, 255, 204));
 
         btnResultado.setText("=");
-        btnResultado.setPreferredSize(new java.awt.Dimension(45, 45));
+        btnResultado.setPreferredSize(new java.awt.Dimension(50, 50));
+        btnResultado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResultadoActionPerformed(evt);
+            }
+        });
 
+        textCalculo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        textCalculo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         textCalculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textCalculoActionPerformed(evt);
@@ -152,32 +227,19 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btn0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnPonto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnLimparTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnResultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnlDividir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btn3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btn4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btn5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btn6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnlMutiplicar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnSoma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(btnlDividir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnlMutiplicar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnLimparTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btn7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -185,8 +247,18 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnSubtrair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                                .addComponent(btnSubtrair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btn4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnSoma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnPonto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                         .addComponent(listHistoricoDeCalculos, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -203,13 +275,14 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
                             .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnlMutiplicar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSoma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnLimparTela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnlDividir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnSoma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnPonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -220,27 +293,30 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(btn0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnPonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btnLimparTela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btnResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnlDividir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(listHistoricoDeCalculos, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSomaActionPerformed
-        // TODO add your handling code here:
+        //this.atualizarDisplay("+");
+        this.pegarValor1();
+        operacao = '+';
+        
     }//GEN-LAST:event_btnSomaActionPerformed
 
     private void btnPontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPontoActionPerformed
-        // TODO add your handling code here:
+        this.atualizarDisplay('.');
     }//GEN-LAST:event_btnPontoActionPerformed
 
     private void btnSubtrairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubtrairActionPerformed
-        // TODO add your handling code here:
+        //this.atualizarDisplay("-");
+        this.pegarValor1();
+        operacao = '-';
     }//GEN-LAST:event_btnSubtrairActionPerformed
 
     private void textCalculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCalculoActionPerformed
@@ -248,13 +324,104 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_textCalculoActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
-        this.atualizarDisplay("1");
+        this.atualizarDisplay('1');
     }//GEN-LAST:event_btn1ActionPerformed
 
-    private void atualizarDisplay(String digito) {
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+        this.atualizarDisplay('2');
+    }//GEN-LAST:event_btn2ActionPerformed
+
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+        this.atualizarDisplay('3');
+    }//GEN-LAST:event_btn3ActionPerformed
+
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+        this.atualizarDisplay('4');
+    }//GEN-LAST:event_btn4ActionPerformed
+
+    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
+        this.atualizarDisplay('5');
+    }//GEN-LAST:event_btn5ActionPerformed
+
+    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
+        this.atualizarDisplay('6');
+    }//GEN-LAST:event_btn6ActionPerformed
+
+    private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
+        this.atualizarDisplay('7');
+    }//GEN-LAST:event_btn7ActionPerformed
+
+    private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
+        this.atualizarDisplay('8');
+    }//GEN-LAST:event_btn8ActionPerformed
+
+    private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
+        this.atualizarDisplay('9');
+    }//GEN-LAST:event_btn9ActionPerformed
+
+    private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
+        this.atualizarDisplay('0');
+    }//GEN-LAST:event_btn0ActionPerformed
+
+    private void btnResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultadoActionPerformed
+        //this.atualizarDisplay("=");
+        this.pegarValor2();
+        this.calcular(operacao);
+    }//GEN-LAST:event_btnResultadoActionPerformed
+
+    private void btnlMutiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlMutiplicarActionPerformed
+        //this.atualizarDisplay("*");
+        this.pegarValor1();
+        operacao = '*';
+    }//GEN-LAST:event_btnlMutiplicarActionPerformed
+
+    private void btnlDividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlDividirActionPerformed
+        //this.atualizarDisplay("/");
+        this.pegarValor1();
+        operacao = '/';
+    }//GEN-LAST:event_btnlDividirActionPerformed
+
+    private void btnLimparTelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparTelaActionPerformed
+        //apagar tudo que aparece no painel
+        textCalculo.setText("");
+    }//GEN-LAST:event_btnLimparTelaActionPerformed
+
+    private void atualizarDisplay(char digito) {
+        
         this.display = this.display + digito;
         textCalculo.setText(this.display);
-
+      
+    }
+    //método para armazenar o primeiro valor
+    private void pegarValor1() {
+        valor1 = Double.parseDouble(textCalculo.getText());
+        textCalculo.setText("");
+    }
+    //método para armazenar o segundo valor
+    private void pegarValor2() {
+        valor2 = Double.parseDouble(textCalculo.getText());
+        textCalculo.setText("");
+    }
+    //método para selecionar a opção de calculo
+    private void calcular (char operacao){
+        if(valor1!= 0 && valor2!= 0){
+            switch(operacao){
+            case '+':
+                resultado = op.somar(valor1, valor2);
+                break;
+            case '-':
+                resultado = op.subtrair(valor1, valor2);
+                break;
+            case '*':
+                resultado = op.multiplicar(valor1, valor2);
+                break;
+            case '/':
+                resultado = op.dividir(valor1, valor2);
+                break;
+        }
+        }
+        
+        textCalculo.setText(String.valueOf(resultado));
     }
 
     /**

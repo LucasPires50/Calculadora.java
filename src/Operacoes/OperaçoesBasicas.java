@@ -32,4 +32,8 @@ public class OperaçoesBasicas {
 
     }
 
+    public void somar(String display, String display0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
