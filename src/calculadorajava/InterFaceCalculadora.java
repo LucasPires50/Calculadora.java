@@ -32,7 +32,7 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
     //variáveis globais
     double valor1, valor2, resultado = 0;
     char operacao;
-    boolean limpar = false;
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
