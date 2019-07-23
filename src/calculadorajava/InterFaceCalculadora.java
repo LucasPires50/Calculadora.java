@@ -14,11 +14,12 @@ import javax.swing.border.EtchedBorder;
  * @author Aluno
  */
 public class InterFaceCalculadora extends javax.swing.JFrame {
-  
-    
+
     private String display;
+
     OperaçoesBasicas op = new OperaçoesBasicas();
     OperaçoesAvançadas opA = new OperaçoesAvançadas();
+
     /**
      * Creates new form InterFaceCalculadora
      */
@@ -28,9 +29,11 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
         textCalculo.setBorder(new EtchedBorder());
         this.display = "";
     }
-     //variáveis globais
-    double valor1, valor2, resultado;
+    //variáveis globais
+    double valor1, valor2, resultado = 0;
     char operacao;
+    boolean limpar = false;
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -306,7 +309,8 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
         //this.atualizarDisplay("+");
         this.pegarValor1();
         operacao = '+';
-        
+        this.display = "";
+
     }//GEN-LAST:event_btnSomaActionPerformed
 
     private void btnPontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPontoActionPerformed
@@ -317,6 +321,7 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
         //this.atualizarDisplay("-");
         this.pegarValor1();
         operacao = '-';
+        this.display = "";
     }//GEN-LAST:event_btnSubtrairActionPerformed
 
     private void textCalculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCalculoActionPerformed
@@ -325,6 +330,7 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         this.atualizarDisplay('1');
+
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
@@ -361,67 +367,83 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
 
     private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
         this.atualizarDisplay('0');
+
     }//GEN-LAST:event_btn0ActionPerformed
 
     private void btnResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultadoActionPerformed
         //this.atualizarDisplay("=");
         this.pegarValor2();
         this.calcular(operacao);
+        this.display = "";
     }//GEN-LAST:event_btnResultadoActionPerformed
 
     private void btnlMutiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlMutiplicarActionPerformed
         //this.atualizarDisplay("*");
         this.pegarValor1();
         operacao = '*';
+        this.display = "";
     }//GEN-LAST:event_btnlMutiplicarActionPerformed
 
     private void btnlDividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlDividirActionPerformed
         //this.atualizarDisplay("/");
         this.pegarValor1();
+
         operacao = '/';
+        this.display = "";
     }//GEN-LAST:event_btnlDividirActionPerformed
 
     private void btnLimparTelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparTelaActionPerformed
         //apagar tudo que aparece no painel
         textCalculo.setText("");
+        this.display = "";
     }//GEN-LAST:event_btnLimparTelaActionPerformed
 
     private void atualizarDisplay(char digito) {
-        
+
         this.display = this.display + digito;
         textCalculo.setText(this.display);
-      
+
     }
+
     //método para armazenar o primeiro valor
     private void pegarValor1() {
+        
         valor1 = Double.parseDouble(textCalculo.getText());
+        
         textCalculo.setText("");
+        System.out.println("valor1:" +valor1);
     }
+
     //método para armazenar o segundo valor
     private void pegarValor2() {
         valor2 = Double.parseDouble(textCalculo.getText());
         textCalculo.setText("");
+        System.out.println("valor2:" + valor2);
     }
+
     //método para selecionar a opção de calculo
-    private void calcular (char operacao){
-        if(valor1!= 0 && valor2!= 0){
-            switch(operacao){
-            case '+':
-                resultado = op.somar(valor1, valor2);
-                break;
-            case '-':
-                resultado = op.subtrair(valor1, valor2);
-                break;
-            case '*':
-                resultado = op.multiplicar(valor1, valor2);
-                break;
-            case '/':
-                resultado = op.dividir(valor1, valor2);
-                break;
+    private void calcular(char operacao) {
+        if (valor1 != 0 && valor2 != 0) {
+            switch (operacao) {
+                case '+':
+                    resultado = op.somar(valor1, valor2);
+                    
+                    break;
+                case '-':
+                    resultado = op.subtrair(valor1, valor2);
+                    break;
+                case '*':
+                    resultado = op.multiplicar(valor1, valor2);
+                    break;
+                case '/':
+                    resultado = op.dividir(valor1, valor2);
+                    break;
+            }
         }
-        }
-        
+
         textCalculo.setText(String.valueOf(resultado));
+        System.out.println("resultado:" +resultado);
+
     }
 
     /**
