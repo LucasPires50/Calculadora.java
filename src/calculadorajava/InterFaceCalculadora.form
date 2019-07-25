@@ -36,11 +36,11 @@
                   <Component id="textCalculo" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="btnResultado" min="-2" pref="107" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnPonto" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnlDividir" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="234" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="230" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -147,10 +147,12 @@
                   <Component id="listHistoricoDeCalculos" min="-2" pref="204" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnResultado" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnPonto" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnlDividir" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnResultado" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnlDividir" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="btnPonto" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
           </Group>

@@ -266,11 +266,11 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
                     .addComponent(textCalculo)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(btnPonto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnlDividir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 234, Short.MAX_VALUE))
+                        .addGap(0, 230, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -353,10 +353,11 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
                             .addComponent(btnSubtrair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(listHistoricoDeCalculos, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnlDividir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnlDividir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnPonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(138, 138, 138))
         );
 
@@ -448,7 +449,6 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
     private void btnlDividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlDividirActionPerformed
         //this.atualizarDisplay("/");
         this.pegarValor1();
-
         operacao = '/';
         this.display = "";
     }//GEN-LAST:event_btnlDividirActionPerformed
@@ -471,7 +471,6 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
         this.pegarValor1();
         this.calcular(operacao);
         operacao = '√';
-
         this.display = "";
     }//GEN-LAST:event_btnRaizQuadradaActionPerformed
 
@@ -506,7 +505,7 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
      */
     private void apagarUmPorVez() {
         String valorDoTextCalculo = this.display;
-        // NÃO ESTA FUNCIONANDO CORRETAMENTE
+       
         if (valorDoTextCalculo.length() > 0) {
             valorDoTextCalculo = valorDoTextCalculo.substring(0, valorDoTextCalculo.length() - 1);
             textCalculo.setText(valorDoTextCalculo);
@@ -522,11 +521,12 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
      * @return valor 1
      */
     private void pegarValor1() {
-
+        
+        
         valor1 = Double.parseDouble(textCalculo.getText());
-
         textCalculo.setText("");
         System.out.println("valor1:" + valor1);
+        
     }
 
     /**
@@ -543,6 +543,7 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Operação inválida!");
 
         }
+        
 
     }
 
@@ -553,7 +554,8 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
      * @return resultado
      */
     private void calcular(char operacao) {
-
+        
+       
         switch (operacao) {
             case '+':
                 resultado = op.somar(valor1, valor2);
@@ -583,8 +585,9 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
                 resultado = opA.porcentagem(valor1, valor2);
                 listHistoricoDeCalculos.add(String.valueOf(valor1 + " x " + valor2 + " % " + " = " + resultado));
                 break;
+                
         }
-
+        
         textCalculo.setText(String.valueOf(resultado));
         System.out.println("resultado:" + resultado);
 
