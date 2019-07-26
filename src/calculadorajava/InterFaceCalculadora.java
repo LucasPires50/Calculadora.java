@@ -7,6 +7,8 @@ package calculadorajava;
 
 import Operacoes.OperaçoesAvançadas;
 import Operacoes.OperaçoesBasicas;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.border.EtchedBorder;
 
@@ -469,8 +471,8 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
 
     private void btnRaizQuadradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaizQuadradaActionPerformed
         this.pegarValor1();
-        this.calcular(operacao);
-        operacao = '√';
+        resultado = opA.raizQuadrada(valor1);
+        listHistoricoDeCalculos.add(String.valueOf(valor1 + " √ " + " = " + resultado));
         this.display = "";
     }//GEN-LAST:event_btnRaizQuadradaActionPerformed
 
@@ -520,9 +522,7 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
      *
      * @return valor 1
      */
-    private void pegarValor1() {
-        
-        
+    private void pegarValor1() { 
         valor1 = Double.parseDouble(textCalculo.getText());
         textCalculo.setText("");
         System.out.println("valor1:" + valor1);
@@ -543,7 +543,6 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Operação inválida!");
 
         }
-        
 
     }
 
@@ -560,6 +559,7 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
             case '+':
                 resultado = op.somar(valor1, valor2);
                 listHistoricoDeCalculos.add(String.valueOf(valor1 + " + " + valor2 + " = " + resultado));
+                
                 break;
             case '-':
                 resultado = op.subtrair(valor1, valor2);
@@ -572,10 +572,6 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
             case '/':
                 resultado = op.dividir(valor1, valor2);
                 listHistoricoDeCalculos.add(String.valueOf(valor1 + " / " + valor2 + " = " + resultado));
-                break;
-            case '√':
-                resultado = opA.raizQuadrada(valor1);
-                listHistoricoDeCalculos.add(String.valueOf(valor1 + " √ " + " = " + resultado));
                 break;
             case '^':
                 resultado = opA.potencia(valor1, valor2);
