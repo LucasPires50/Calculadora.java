@@ -19,7 +19,7 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
     String display;
     OperaçoesBasicas op = new OperaçoesBasicas();
     OperaçoesAvançadas opA = new OperaçoesAvançadas();
-    
+
     /**
      * Creates new form InterFaceCalculadora
      */
@@ -28,13 +28,13 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
         //para colocar a borda no painel
         textCalculo.setBorder(new EtchedBorder());
         this.display = "";
-        
+
     }
     //variáveis globais
     String copia = "";
     double valor1, valor2, resultado = 0;
     char operacao;
-  
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -756,7 +756,7 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
         this.pegarValor2();
         this.calcular(operacao);
         this.display = "";
-        labelCalculo.setText(labelCalculo.getText()+" "+valor2);
+        labelCalculo.setText(labelCalculo.getText() + " " + valor2);
 
     }//GEN-LAST:event_btnResultadoActionPerformed
 
@@ -811,91 +811,98 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_bntPorcentagemActionPerformed
 
     private void textCalculoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textCalculoKeyPressed
-        // TODO add your handling code here:
+        int teclado = evt.getKeyCode();
+        if (evt.getKeyChar() == '+'
+         || evt.getKeyChar() == '-'
+         || evt.getKeyChar() == '*'
+         || evt.getKeyChar() == '/') {
+            pegarValor1();
+            operacao = evt.getKeyChar();
+            setarValoresTemporarios();
+
+        }else if(teclado == 10){
+        this.pegarValor2();
+        this.calcular(operacao);
+        this.display = "";
+            
+        }
+        System.out.println(evt.getKeyCode());
     }//GEN-LAST:event_textCalculoKeyPressed
 
     private void btn1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn1KeyPressed
-        if(evt.getKeyChar() == '1'){  
+        if (evt.getKeyChar() == '1') {
         }
         atualizarDisplay(evt.getKeyChar());
     }//GEN-LAST:event_btn1KeyPressed
 
     private void btn2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn2KeyPressed
-        if(evt.getKeyChar() == '2'){  
+        if (evt.getKeyChar() == '2') {
         }
         atualizarDisplay(evt.getKeyChar());
     }//GEN-LAST:event_btn2KeyPressed
 
     private void btn3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn3KeyPressed
-        if(evt.getKeyChar() == '3'){  
+        if (evt.getKeyChar() == '3') {
         }
         atualizarDisplay(evt.getKeyChar());
     }//GEN-LAST:event_btn3KeyPressed
 
     private void btn4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn4KeyPressed
-        if(evt.getKeyChar() == '4'){  
+        if (evt.getKeyChar() == '4') {
         }
         atualizarDisplay(evt.getKeyChar());
     }//GEN-LAST:event_btn4KeyPressed
 
     private void btn5KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn5KeyPressed
-        if(evt.getKeyChar() == '5'){  
+        if (evt.getKeyChar() == '5') {
         }
         atualizarDisplay(evt.getKeyChar());
     }//GEN-LAST:event_btn5KeyPressed
 
     private void btn6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn6KeyPressed
-        if(evt.getKeyChar() == '6'){  
+        if (evt.getKeyChar() == '6') {
         }
         atualizarDisplay(evt.getKeyChar());
     }//GEN-LAST:event_btn6KeyPressed
 
     private void btn7KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn7KeyPressed
-        if(evt.getKeyChar() == '7'){  
+        if (evt.getKeyChar() == '7') {
         }
         atualizarDisplay(evt.getKeyChar());
     }//GEN-LAST:event_btn7KeyPressed
 
     private void btn8KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn8KeyPressed
-        if(evt.getKeyChar() == '8'){  
+        if (evt.getKeyChar() == '8') {
         }
         atualizarDisplay(evt.getKeyChar());
     }//GEN-LAST:event_btn8KeyPressed
 
     private void btn9KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn9KeyPressed
-        if(evt.getKeyChar() == '9'){  
+        if (evt.getKeyChar() == '9') {
         }
         atualizarDisplay(evt.getKeyChar());
     }//GEN-LAST:event_btn9KeyPressed
 
     private void btn0KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn0KeyPressed
-        if(evt.getKeyChar() == '0'){  
+        if (evt.getKeyChar() == '0') {
         }
         atualizarDisplay(evt.getKeyChar());
         System.out.println(evt.getKeyChar());
     }//GEN-LAST:event_btn0KeyPressed
 
     private void btnSomaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnSomaKeyPressed
-      
-        if(evt.getKeyChar()== '+'){
-          pegarValor1();
-          operacao = evt.getKeyChar();
-          setarValoresTemporarios();
-        
-      }
-        System.out.println("code: "+evt.getKeyChar());
-        
-       
-       
+
+
+
     }//GEN-LAST:event_btnSomaKeyPressed
 
     private void bntMaisOuMenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntMaisOuMenosActionPerformed
-        if(display.startsWith("-")){
-          display = display.replace("-", "+");
-        }else if(display.startsWith("+")){
-          display = display.replace("+", "-");
-        }else{ 
-            display = "-"+display;
+        if (display.startsWith("-")) {
+            display = display.replace("-", "+");
+        } else if (display.startsWith("+")) {
+            display = display.replace("+", "-");
+        } else {
+            display = "-" + display;
         }
         textCalculo.setText(display);
     }//GEN-LAST:event_bntMaisOuMenosActionPerformed
@@ -937,7 +944,7 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_bntCossenoActionPerformed
 
     private void bntTangenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntTangenteActionPerformed
-       this.pegarValor1();
+        this.pegarValor1();
         resultado = opA.tangente(valor1);
         listHistoricoDeCalculos.add(String.valueOf(valor1 + " tan " + " = " + resultado));
         this.display = "";
@@ -953,7 +960,6 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
 
         this.display = this.display + digito;
         textCalculo.setText(this.display);
-        
 
     }
 
@@ -964,7 +970,7 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
      */
     private void apagarUmPorVez() {
         String valorDoTextCalculo = this.display;
-       
+
         if (valorDoTextCalculo.length() > 0) {
             valorDoTextCalculo = valorDoTextCalculo.substring(0, valorDoTextCalculo.length() - 1);
             textCalculo.setText(valorDoTextCalculo);
@@ -979,8 +985,8 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
      *
      * @return valor 1
      */
-    private void pegarValor1() { 
-        valor1 = Double.parseDouble(textCalculo.getText());  
+    private void pegarValor1() {
+        valor1 = Double.parseDouble(textCalculo.getText());
         textCalculo.setText("");
         System.out.println("valor1:" + valor1);
     }
@@ -1001,14 +1007,14 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
         }
 
     }
+
     /**
-     * Esate método vai mostra os números da operação no momento do 
-     * calculo
+     * Esate método vai mostra os números da operação no momento do calculo
      */
-    public void setarValoresTemporarios(){
-        
-        labelCalculo.setText(String.valueOf(valor1)+" "+operacao);
-     
+    public void setarValoresTemporarios() {
+
+        labelCalculo.setText(String.valueOf(valor1) + " " + operacao);
+
     }
 
     /**
@@ -1018,12 +1024,11 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
      * @return resultado
      */
     private void calcular(char operacao) {
-        
-       
+
         switch (operacao) {
             case '+':
                 resultado = op.somar(valor1, valor2);
-                listHistoricoDeCalculos.add(String.valueOf(valor1 + " + " + valor2 + " = " + resultado));               
+                listHistoricoDeCalculos.add(String.valueOf(valor1 + " + " + valor2 + " = " + resultado));
                 break;
             case '-':
                 resultado = op.subtrair(valor1, valor2);
@@ -1045,9 +1050,9 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
                 resultado = opA.porcentagem(valor1, valor2);
                 listHistoricoDeCalculos.add(String.valueOf(valor1 + " x " + valor2 + " % " + " = " + resultado));
                 break;
-                
+
         }
-        
+
         textCalculo.setText(String.valueOf(resultado));
         System.out.println("resultado:" + resultado);
 
