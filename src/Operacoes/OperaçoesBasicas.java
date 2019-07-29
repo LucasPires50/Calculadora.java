@@ -5,7 +5,7 @@ public class OperaçoesBasicas {
 
     // dentro do parenteses é o parametro.
     public double somar(double a, double b) {
-
+       
         double resultado = a + b;
         // aqui definir o retorno do metodo 
         return resultado;

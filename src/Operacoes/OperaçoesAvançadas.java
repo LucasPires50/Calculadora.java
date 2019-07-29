@@ -20,18 +20,6 @@ public class OperaçoesAvançadas {
         return resultado;
     }
 
-    public double areaQuadrada(double largura, double centimetros) {
-
-        double resultado = largura * centimetros;
-        return resultado;
-    }
-
-    public double imc(double peso, double altura) {
-
-        double resultado = peso / (altura * altura);
-        return resultado;
-    }
-
     public double raizQuadrada(double raiz) {
 
         double resultado = Math.sqrt(raiz);
@@ -41,6 +29,16 @@ public class OperaçoesAvançadas {
     public double seno(double a) {
 
         double resultado = Math.sin(a);
+        return resultado;
+    }
+    
+    public double coseno(double a){
+        double resultado = Math.cos(a);
+        return resultado;
+    }
+    
+    public double tangente (double a){
+        double resultado = Math.tan(a);
         return resultado;
     }
 
