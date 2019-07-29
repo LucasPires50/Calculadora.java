@@ -757,6 +757,9 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
         this.calcular(operacao);
         this.display = "";
         labelCalculo.setText(labelCalculo.getText() + " " + valor2);
+        setarValoresTemporarios();
+
+
 
     }//GEN-LAST:event_btnResultadoActionPerformed
 
@@ -811,7 +814,7 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_bntPorcentagemActionPerformed
 
     private void textCalculoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textCalculoKeyPressed
-        int teclado = evt.getKeyCode();
+        double teclado = evt.getKeyCode();
         if (evt.getKeyChar() == '+'
          || evt.getKeyChar() == '-'
          || evt.getKeyChar() == '*'
@@ -820,13 +823,14 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
             operacao = evt.getKeyChar();
             setarValoresTemporarios();
 
-        }else if(teclado == 10){
+        }if(teclado == 10){
         this.pegarValor2();
         this.calcular(operacao);
         this.display = "";
+        
             
         }
-        System.out.println(evt.getKeyCode());
+        System.out.println("code:"+evt.getKeyCode());
     }//GEN-LAST:event_textCalculoKeyPressed
 
     private void btn1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn1KeyPressed
@@ -997,7 +1001,18 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
      * @return valor 2
      */
     private void pegarValor2() {
-        valor2 = Double.parseDouble(textCalculo.getText());
+        
+        String textDisplay = textCalculo.getText();
+        textDisplay = textDisplay.replace('*', ' ');
+        textDisplay = textDisplay.replaceAll(" ", "");
+        
+        textDisplay = textDisplay.replace('-', ' ');
+        textDisplay = textDisplay.replaceAll(" ", "");
+        
+        textDisplay = textDisplay.replace('/', ' ');
+        textDisplay = textDisplay.replaceAll(" ", "");
+       
+        valor2 = Double.parseDouble(textDisplay);
         textCalculo.setText("");
         System.out.println("valor2:" + valor2);
         if (valor2 == 0 && operacao == '/') {
@@ -1005,6 +1020,8 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Operação inválida!");
 
         }
+        setarValoresTemporarios();
+
 
     }
 
