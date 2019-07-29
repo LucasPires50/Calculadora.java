@@ -7,7 +7,6 @@ package calculadorajava;
 
 import Operacoes.OperaçoesAvançadas;
 import Operacoes.OperaçoesBasicas;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.border.EtchedBorder;
 
@@ -32,9 +31,10 @@ public class InterFaceCalculadora extends javax.swing.JFrame {
         
     }
     //variáveis globais
+    String copia = "";
     double valor1, valor2, resultado = 0;
     char operacao;
-    String copia = "";
+  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
